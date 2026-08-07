@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>© 2026 Ramayana Project. All rights reserved.</p>
+        <p>© 2026 All rights reserved. Made by Hari Bhakt Arindam with Devotion.</p>
         <p className="footer-version">
           Version {version} • Last Updated: August 2026
         </p>
