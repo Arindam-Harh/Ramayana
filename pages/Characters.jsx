@@ -159,12 +159,44 @@ Vishnu is regarded as infinitely compassionate, merciful, patient, and protectiv
       setCount(count + 1);
     }
   };
+  const progress = (count + 1) / ramayanaCharacters.length;
+  const hue = 5 + progress * 43; // 5° (crimson) → 48° (gold)
   return (
     <div className="container">
       <h1>All Characters of Ramayana</h1>
-      <p className="counter">
-        Character {count + 1} of {ramayanaCharacters.length}
-      </p>
+
+      <div className="progress-container">
+        <p className="counter">
+          Character {count + 1} of {ramayanaCharacters.length}
+        </p>
+
+        <div className="progress-bar">
+          <div
+            className="progress-fill"
+            style={{
+              width: `${((count + 1) / ramayanaCharacters.length) * 100}%`,
+              background:
+                count < ramayanaCharacters.length * 0.12
+                  ? "linear-gradient(90deg, #7a0000, #9b111e)"
+                  : count < ramayanaCharacters.length * 0.24
+                    ? "linear-gradient(90deg, #9b111e, #c21807)"
+                    : count < ramayanaCharacters.length * 0.36
+                      ? "linear-gradient(90deg, #c21807, #d84315)"
+                      : count < ramayanaCharacters.length * 0.48
+                        ? "linear-gradient(90deg, #d84315, #ef6c00)"
+                        : count < ramayanaCharacters.length * 0.6
+                          ? "linear-gradient(90deg, #ef6c00, #fb8c00)"
+                          : count < ramayanaCharacters.length * 0.72
+                            ? "linear-gradient(90deg, #fb8c00, #f9a825)"
+                            : count < ramayanaCharacters.length * 0.84
+                              ? "linear-gradient(90deg, #f9a825, #fbc02d)"
+                              : count < ramayanaCharacters.length * 0.94
+                                ? "linear-gradient(90deg, #fbc02d, #ffd54f)"
+                                : "linear-gradient(90deg, #ffd54f, #ffec8b, #fff3b0)",
+            }}
+          />
+        </div>
+      </div>
 
       <div className="character-layout">
         <button
@@ -172,7 +204,7 @@ Vishnu is regarded as infinitely compassionate, merciful, patient, and protectiv
           onClick={handleCountD}
           disabled={count === 0}
         >
-          ❮ 
+          ❮
         </button>
 
         <div className="main">
@@ -185,7 +217,7 @@ Vishnu is regarded as infinitely compassionate, merciful, patient, and protectiv
           onClick={handleCountI}
           disabled={count === ramayanaCharacters.length - 1}
         >
-           ❯
+          ❯
         </button>
       </div>
     </div>

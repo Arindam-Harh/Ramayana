@@ -1,89 +1,47 @@
 .footer {
-  margin-top: 80px;
-  background: rgba(20, 5, 5, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
-  color: #fdf6e3;
-}
-
-.footer-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 50px 30px;
-
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 50px;
-}
-
-.footer-brand h2 {
-  color: #f4c430;
-  font-size: 2rem;
-  margin-bottom: 14px;
-  text-shadow: 0 0 10px rgba(244, 196, 48, 0.2);
-}
-
-.footer-brand p {
-  color: #e8dcc0;
-  line-height: 1.8;
-  font-size: 1rem;
-}
-
-.footer-links h3 {
-  color: #ffd54f;
-  margin-bottom: 16px;
-  font-size: 1.1rem;
-}
-
-.footer-links a {
-  display: block;
-  color: #fdf6e3;
-  text-decoration: none;
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
-}
-
-.footer-links a:hover,
-.footer-links a.active {
-  color: #f4c430;
-  transform: translateX(4px);
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  width: 100%;
+  padding: 12px 0;
   text-align: center;
-  padding: 20px;
+  background: rgba(20, 5, 5, 0.75);
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  backdrop-filter: blur(6px);
 }
 
-.footer-bottom p {
-  color: #d8c9a3;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
+.footer-version {
+  font-size: 0.72rem;
+  color: rgba(253, 246, 227, 0.55);
+  letter-spacing: 0.3px;
 }
 
-/* Mobile */
+.footer-version span {
+  margin: 0 4px;
+  color: rgba(212, 175, 55, 0.4);
+}
+
 @media (max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding: 40px 20px;
-    text-align: center;
+  .footer {
+    padding: 10px 0;
   }
 
-  .footer-brand h2 {
-    font-size: 1.8rem;
+  .footer-version {
+    font-size: 0.68rem;
   }
+}
+.footer {
+  width: 100%;
+  background: #18060665;
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  padding: 10px 0;
+  text-align: center;
+}
 
-  .footer-links a:hover {
-    transform: none;
-  }
+.footer-version {
+  font-size: 0.72rem;
+  color: rgba(253, 246, 227, 0.55);
+  letter-spacing: 0.3px;
+}
 
-  .footer-bottom {
-    padding: 18px;
-  }
-
-  .footer-bottom p {
-    font-size: 0.85rem;
-  }
+.footer-version span {
+  margin: 0 4px;
+  color: rgba(212, 175, 55, 0.492);
 }

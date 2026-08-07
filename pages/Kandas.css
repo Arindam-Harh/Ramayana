@@ -11,7 +11,7 @@
   margin-bottom: 30px;
 }
 
-/* Kanda tabs */
+/* Kanda tabs / sticky nav */
 
 .kanda-tabs {
   display: flex;
@@ -43,93 +43,107 @@
   font-weight: 700;
 }
 
-/* Reader layout */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #2b0a0a;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  -webkit-overflow-scrolling: touch;
 
-.reader-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 rgba(255, 248, 220, 0.08);
 }
 
-/* Sidebar */
-
-.sarga-sidebar {
-  background: rgba(255, 248, 220, 0.06);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 18px;
-  padding: 20px;
-
-  height: 80vh;
-  overflow-y: auto;
+/* Desktop: center the row when it fits, no scroll needed */
+@media (min-width: 901px) {
+  .sticky-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
 }
 
-.sarga-sidebar h3 {
-  color: #f4c430;
-  margin-bottom: 18px;
+.sticky-nav .kanda-tab {
+  flex: 0 0 auto;
+  min-height: 44px;
+  white-space: nowrap;
 }
 
-.sarga-list {
+/* Continuous reading flow */
+
+.reader-flow {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.sarga-btn {
-  text-align: left;
-  padding: 12px 14px;
+.kanda-section {
+  scroll-margin-top: 70px;
+}
 
-  background: transparent;
-  color: #fdf6e3;
+.kanda-section-header {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
 
-  border: 1px solid rgba(212, 175, 55, 0.15);
+.kanda-section-header h2 {
+  color: #ffd54f;
+  font-size: 1.8rem;
+}
+
+/* Sarga chip row */
+
+.sarga-chip-row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 rgba(255, 248, 220, 0.08);
+}
+
+.sarga-chip {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 8px 14px;
   border-radius: 10px;
-
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: rgba(255, 248, 220, 0.06);
+  color: #fdf6e3;
+  white-space: nowrap;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
-.sarga-btn:hover {
-  background: rgba(212, 175, 55, 0.08);
-}
-
-.sarga-btn.active {
+.sarga-chip:hover,
+.sarga-chip:active {
   background: rgba(212, 175, 55, 0.18);
-  border-color: rgba(212, 175, 55, 0.4);
-  color: #ffd54f;
 }
 
-/* Reader panel */
-
-.reader-panel {
-  background: rgba(255, 248, 220, 0.06);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 18px;
-  padding: 24px;
-
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
+.sarga-block {
+  scroll-margin-top: 130px;
+  margin-bottom: 32px;
 }
 
-.reader-header {
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  padding-bottom: 16px;
-  margin-bottom: 20px;
+.sarga-heading {
+  color: #f4c430;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
 }
 
-.reader-header h2 {
-  color: #ffd54f;
-  font-size: 2rem;
-}
-
-.reader-header p {
-  color: #d8c9a3;
-}
-
-.shloka-container {
-  overflow-y: auto;
-  padding-right: 10px;
-}
+/* Shloka cards */
 
 .shloka-card {
   background: rgba(255, 248, 220, 0.04);
@@ -179,50 +193,530 @@
   padding: 40px;
 }
 
-/* Scrollbars */
+/* Styled horizontal scrollbars (Chrome/Safari/Edge) */
 
-.sarga-sidebar::-webkit-scrollbar,
-.shloka-container::-webkit-scrollbar {
-  width: 8px;
+.sarga-chip-row::-webkit-scrollbar,
+.sticky-nav::-webkit-scrollbar {
+  height: 6px;
 }
 
-.sarga-sidebar::-webkit-scrollbar-thumb,
-.shloka-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    #f4c430,
-    #d4af37,
-    #b8860b
-  );
+.sarga-chip-row::-webkit-scrollbar-track,
+.sticky-nav::-webkit-scrollbar-track {
+  background: rgba(255, 248, 220, 0.06);
   border-radius: 10px;
+}
+
+.sarga-chip-row::-webkit-scrollbar-thumb,
+.sticky-nav::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #f4c430, #d4af37, #b8860b);
+  border-radius: 10px;
+}
+
+/* Back to top button */
+
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 20;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #d4af37, #f4c430);
+  color: #2b0a0a;
+  border: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  filter: brightness(1.08);
 }
 
 /* Mobile */
 
 @media (max-width: 900px) {
-  .reader-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .sarga-sidebar {
-    height: auto;
-    max-height: 220px;
-  }
-
-  .reader-panel {
-    height: auto;
-    min-height: 70vh;
+  .kandas-page {
+    padding: 24px 16px;
   }
 
   .kandas-page h1 {
     font-size: 2.2rem;
   }
 
-  .reader-header h2 {
-    font-size: 1.6rem;
+  .kanda-section-header h2 {
+    font-size: 1.5rem;
   }
 
   .sanskrit {
     font-size: 1.2rem;
+  }
+
+  .shloka-card {
+    padding: 18px;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
+.shloka-card {
+  background: rgba(255, 248, 220, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 18px;
+  padding: 26px;
+  margin-bottom: 24px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(212, 175, 55, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.shloka-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(212, 175, 55, 0.16);
+}
+.sanskrit {
+  color: #ffd54f;
+  font-size: 1.55rem;
+  line-height: 2.15;
+  margin-bottom: 18px;
+  text-align: center;
+  font-weight: 500;
+}
+.section p {
+  color: #fdf6e3;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+/* ===========================
+   Global Scrollbar
+=========================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 rgba(255, 248, 220, 0.08);
+}
+
+/* Chrome / Edge / Safari */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(43, 10, 10, 0.9);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #f6d365,
+    #f4c430,
+    #d4af37,
+    #b8860b
+  );
+  border-radius: 12px;
+  border: 2px solid rgba(43, 10, 10, 0.9);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #ffe082,
+    #ffd54f,
+    #f4c430,
+    #c8971c
+  );
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(43, 10, 10, 0.9);
+}
+
+/* ===========================
+   Horizontal Scrollbars
+=========================== */
+
+.sticky-nav::-webkit-scrollbar,
+.sarga-chip-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.sticky-nav::-webkit-scrollbar-track,
+.sarga-chip-row::-webkit-scrollbar-track {
+  background: rgba(255, 248, 220, 0.06);
+  border-radius: 10px;
+}
+
+.sticky-nav::-webkit-scrollbar-thumb,
+.sarga-chip-row::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    90deg,
+    #f6d365,
+    #f4c430,
+    #d4af37
+  );
+  border-radius: 10px;
+}
+
+.sticky-nav::-webkit-scrollbar-thumb:hover,
+.sarga-chip-row::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    90deg,
+    #ffe082,
+    #ffd54f,
+    #f4c430
+  );
+}
+.resume-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 248, 220, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.resume-banner p {
+  color: #fdf6e3;
+}
+
+.resume-btn {
+  background: linear-gradient(135deg, #d4af37, #f4c430);
+  color: #2b0a0a;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+/* Resume Banner */
+
+.resume-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 248, 220, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 16px;
+
+  padding: 18px 22px;
+  margin-bottom: 28px;
+
+  backdrop-filter: blur(10px);
+}
+
+.resume-title {
+  color: #f4c430;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.resume-subtitle {
+  color: #fdf6e3;
+  font-size: 0.95rem;
+}
+
+.resume-btn {
+  background: linear-gradient(135deg, #d4af37, #f4c430);
+  color: #2b0a0a;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 10px 18px;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.resume-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* Highlight resumed shloka */
+
+.resume-highlight {
+  animation: resumeGlow 2s ease;
+}
+
+@keyframes resumeGlow {
+  0% {
+    box-shadow:
+      0 0 0 rgba(244, 196, 48, 0),
+      0 0 0 rgba(244, 196, 48, 0);
+  }
+
+  25% {
+    box-shadow:
+      0 0 24px rgba(244, 196, 48, 0.55),
+      0 0 48px rgba(244, 196, 48, 0.25);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 rgba(244, 196, 48, 0),
+      0 0 0 rgba(244, 196, 48, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .resume-btn {
+    width: 100%;
+  }
+}
+/* ========================================
+   BOOKMARK FEATURE
+======================================== */
+
+.shloka-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.bookmark-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: rgba(255, 248, 220, 0.06);
+
+  color: rgba(255, 215, 0, 0.5);
+  font-size: 1.25rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.25s ease;
+}
+
+.bookmark-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: #ffd54f;
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(244, 196, 48, 0.25);
+}
+
+.bookmark-btn.active {
+  background: linear-gradient(135deg, #d4af37, #f4c430);
+  color: #2b0a0a;
+  border-color: #f4c430;
+
+  box-shadow:
+    0 0 14px rgba(244, 196, 48, 0.35),
+    inset 0 1px 0 rgba(255, 248, 220, 0.35);
+}
+
+.bookmark-btn.active:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 18px rgba(244, 196, 48, 0.45),
+    inset 0 1px 0 rgba(255, 248, 220, 0.4);
+}
+
+/* ========================================
+   RESUME READING BANNER
+======================================== */
+
+.resume-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 248, 220, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 18px;
+
+  padding: 20px 24px;
+  margin-bottom: 26px;
+
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(212, 175, 55, 0.08);
+}
+
+.resume-title {
+  color: #f4c430;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.resume-subtitle {
+  color: #fdf6e3;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.resume-time {
+  color: #d8c9a3;
+  font-size: 0.9rem;
+}
+
+.resume-btn {
+  background: linear-gradient(135deg, #d4af37, #f4c430);
+  color: #2b0a0a;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px 22px;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.resume-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(212, 175, 55, 0.35),
+    0 0 14px rgba(244, 196, 48, 0.18);
+}
+
+/* ========================================
+   READING PROGRESS
+======================================== */
+
+.reading-progress {
+  margin-bottom: 28px;
+}
+
+.progress-label {
+  color: #e8dcc0;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 10px;
+  background: rgba(255, 248, 220, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #d4af37,
+    #f4c430,
+    #ffd54f
+  );
+  border-radius: 999px;
+
+  box-shadow: 0 0 10px rgba(244, 196, 48, 0.25);
+
+  transition: width 0.4s ease;
+}
+
+/* ========================================
+   RESUME SHLOKA HIGHLIGHT
+======================================== */
+
+.resume-highlight {
+  animation: resumeGlow 2s ease;
+}
+
+@keyframes resumeGlow {
+  0% {
+    box-shadow:
+      0 0 0 rgba(244, 196, 48, 0),
+      0 0 0 rgba(244, 196, 48, 0);
+  }
+
+  30% {
+    box-shadow:
+      0 0 28px rgba(244, 196, 48, 0.55),
+      0 0 56px rgba(244, 196, 48, 0.25);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 rgba(244, 196, 48, 0),
+      0 0 0 rgba(244, 196, 48, 0);
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .resume-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .resume-btn {
+    width: 100%;
+  }
+
+  .bookmark-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .progress-bar {
+    height: 8px;
   }
 }
