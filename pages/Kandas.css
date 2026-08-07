@@ -1,6 +1,28 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 .kandas-page {
+  width: 100%; /* Use 100% instead of relying on default block behavior with padding */
+  max-width: 100%;
   min-height: 100vh;
   padding: 40px 24px;
+  box-sizing: border-box;
+}
+.kandas-page {
+  width: 100%; 
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 40px 24px;
+  box-sizing: border-box;
   color: #fff8e1;
 }
 
