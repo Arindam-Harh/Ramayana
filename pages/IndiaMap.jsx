@@ -13,7 +13,7 @@ export const IndiaMap = () => {
 
   return (
     <section className="india-map-section">
-      <h2 className="map-title">Journey across the land</h2>
+      <h2 className="map-title">Journey Across the Land</h2>
 
       <div className="map-wrapper">
         <ComposableMap
