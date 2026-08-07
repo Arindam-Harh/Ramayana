@@ -1,0 +1,128 @@
+.india-map-section {
+  padding: 40px 24px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.map-title {
+  text-align: center;
+  color: #f4c430;
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.map-wrapper {
+  background: rgba(255, 248, 220, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.map-region {
+  fill: rgba(212, 175, 55, 0.12);
+  stroke: rgba(212, 175, 55, 0.4);
+  stroke-width: 0.6;
+  outline: none;
+}
+
+.map-region:hover {
+  fill: rgba(212, 175, 55, 0.22);
+}
+
+.map-marker {
+  fill: #f4c430;
+  stroke: #2b0a0a;
+  stroke-width: 1.5;
+  cursor: pointer;
+}
+
+.map-marker-pulse {
+  fill: none;
+  stroke: #f4c430;
+  stroke-width: 1.5;
+  opacity: 0.6;
+  animation: map-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes map-pulse {
+  0% {
+    r: 6;
+    opacity: 0.6;
+  }
+  100% {
+    r: 16;
+    opacity: 0;
+  }
+}
+
+/* Popup */
+
+.map-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 20px;
+}
+
+.map-popup {
+  background: #2b0a0a;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.map-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #f4c430;
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.map-popup h3 {
+  color: #ffd54f;
+  font-size: 1.3rem;
+  margin: 0 0 6px;
+  padding-right: 30px;
+}
+
+.map-popup-location {
+  color: #d8c9a3;
+  font-size: 0.85rem;
+  margin: 0 0 14px;
+}
+
+.map-popup-summary {
+  color: #fdf6e3;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.map-popup-characters {
+  color: #f4c430;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .india-map-section {
+    padding: 24px 16px;
+  }
+  .map-title {
+    font-size: 1.5rem;
+  }
+}

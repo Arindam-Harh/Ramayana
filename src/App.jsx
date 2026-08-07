@@ -5,13 +5,14 @@ import { Home } from "../pages/Home.jsx";
 import { ErrorPage } from "../pages/ErrorPage.jsx";
 import { Timeline } from "../pages/Timeline.jsx";
 import { Kandas } from "../pages/kandas.jsx";
+import { IndiaMap} from "../pages/IndiaMap.jsx";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <AppLayout />,
-      errorElement: <ErrorPage/>,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,
@@ -19,16 +20,20 @@ const App = () => {
         },
         {
           path: "/characters",
-          element: <Characters />
+          element: <Characters />,
         },
         {
           path: "/timeline",
-          element: <Timeline/>
+          element: <Timeline />,
         },
         {
           path: "/kandas",
-          element: <Kandas/>
-        }
+          element: <Kandas />,
+        },
+        {
+          path: "/map",
+          element: <IndiaMap />,
+        },
       ],
     },
   ]);

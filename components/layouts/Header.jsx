@@ -41,10 +41,10 @@ export const Header = () => {
           <NavLink to="/map" onClick={closeMenu}>
             Journey Map
           </NavLink>
-
+{/* 
           <NavLink to="/ai-guide" onClick={closeMenu}>
             Ask AI
-          </NavLink>
+          </NavLink> */}
         </nav>
       </div>
     </header>
