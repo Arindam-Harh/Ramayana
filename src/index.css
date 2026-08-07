@@ -13,3 +13,54 @@ body,
 .app-content {
   flex: 1;
 }
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #2b0a0a;
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2b0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f4c430, #d4af37, #b8860b);
+  border-radius: 10px;
+  border: 2px solid #2b0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd54f, #f4c430, #d4af37);
+}
+
+::-webkit-scrollbar-corner {
+  background: #5a0f0f;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #2b0a0a;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #2b0a0a;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f4c430, #d4af37, #b8860b);
+  border-radius: 10px;
+  border: 2px solid #2b0a0a;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd54f, #f4c430, #d4af37);
+}

@@ -720,3 +720,32 @@ html {
     height: 8px;
   }
 }
+/* Scoped scrollbar — dark maroon + gold theme */
+
+.kandas-page {
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #2b0a0a;
+}
+
+.kandas-page::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.kandas-page::-webkit-scrollbar-track {
+  background: #2b0a0a;
+}
+
+.kandas-page::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f4c430, #d4af37, #b8860b);
+  border-radius: 10px;
+  border: 2px solid #2b0a0a;
+}
+
+.kandas-page::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd54f, #f4c430, #d4af37);
+}
+
+.kandas-page::-webkit-scrollbar-corner {
+  background: #2b0a0a;
+}
