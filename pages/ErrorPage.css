@@ -1,0 +1,39 @@
+.error-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff8e1;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-container h1 {
+  font-size: 6rem;
+  color: #f4c430;
+  margin-bottom: 10px;
+}
+
+.error-container h2 {
+  font-size: 2rem;
+  color: #ffd54f;
+  margin-bottom: 15px;
+}
+
+.error-container p {
+  max-width: 600px;
+  color: #e8dcc0;
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.home-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d4af37, #f4c430);
+  color: #2b0a0a;
+  font-weight: 700;
+  cursor: pointer;
+}

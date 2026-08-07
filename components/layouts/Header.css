@@ -1,0 +1,169 @@
+/* ===== Header ===== */
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(26, 5, 5, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.35),
+    0 0 15px rgba(212, 175, 55, 0.08);
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 16px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== Logo ===== */
+
+.logo {
+  color: #f4c430;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-shadow: 0 0 10px rgba(244, 196, 48, 0.2);
+
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  color: #ffd54f;
+}
+
+/* ===== Navigation ===== */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #fff8e1;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+
+  position: relative;
+
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f4c430;
+}
+
+/* Gold underline animation */
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+
+  background: #f4c430;
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ===== Hamburger button ===== */
+
+.menu-btn {
+  display: none;
+
+  background: transparent;
+  border: none;
+
+  color: #f4c430;
+  font-size: 1.8rem;
+
+  cursor: pointer;
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 768px) {
+
+  .header-container {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+
+    width: 100%;
+    margin-top: 18px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+
+    background: rgba(26, 5, 5, 0.95);
+
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 14px;
+
+    overflow: hidden;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 16px 20px;
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+
+    font-size: 1rem;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a:hover {
+    background: rgba(212, 175, 55, 0.08);
+    color: #ffd54f;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+}
