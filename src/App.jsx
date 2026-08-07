@@ -3,6 +3,8 @@ import { Characters } from "../pages/Characters.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "../pages/Home.jsx";
 import { ErrorPage } from "../pages/ErrorPage.jsx";
+import { Timeline } from "../pages/Timeline.jsx";
+import { Kandas } from "../pages/kandas.jsx";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -18,6 +20,14 @@ const App = () => {
         {
           path: "/characters",
           element: <Characters />
+        },
+        {
+          path: "/timeline",
+          element: <Timeline/>
+        },
+        {
+          path: "/kandas",
+          element: <Kandas/>
         }
       ],
     },

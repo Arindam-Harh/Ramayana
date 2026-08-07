@@ -172,7 +172,7 @@ Vishnu is regarded as infinitely compassionate, merciful, patient, and protectiv
           onClick={handleCountD}
           disabled={count === 0}
         >
-          ❮ Prev
+          ❮ 
         </button>
 
         <div className="main">
@@ -185,7 +185,7 @@ Vishnu is regarded as infinitely compassionate, merciful, patient, and protectiv
           onClick={handleCountI}
           disabled={count === ramayanaCharacters.length - 1}
         >
-          Next ❯
+           ❯
         </button>
       </div>
     </div>

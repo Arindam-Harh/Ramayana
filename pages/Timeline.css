@@ -1,0 +1,153 @@
+.timeline-container {
+  min-height: 100vh;
+  padding: 60px 20px;
+  color: #fff8e1;
+}
+
+.timeline-container h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #f4c430;
+  margin-bottom: 10px;
+}
+
+.timeline-subtitle {
+  text-align: center;
+  color: #e8dcc0;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #d4af37,
+    #f4c430,
+    #ffd54f
+  );
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.timeline-node {
+  position: absolute;
+  left: -31px;
+  top: 28px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f4c430;
+  border: 3px solid #2b0a0a;
+  box-shadow: 0 0 14px rgba(244, 196, 48, 0.45);
+}
+
+.timeline-card {
+  background: rgba(255, 248, 220, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 18px;
+  padding: 26px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(212, 175, 55, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(212, 175, 55, 0.18);
+}
+
+.timeline-number {
+  display: inline-block;
+  color: #f4c430;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.timeline-card h2 {
+  color: #ffd54f;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.timeline-location {
+  color: #e6c878;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.timeline-summary {
+  color: #fdf6e3;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.timeline-characters {
+  padding-top: 12px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  color: #e8dcc0;
+}
+
+.timeline-characters strong {
+  color: #f4c430;
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 40px 16px;
+  }
+
+  .timeline-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    left: 12px;
+  }
+
+  .timeline-node {
+    left: -25px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .timeline-card {
+    padding: 20px;
+  }
+
+  .timeline-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .timeline-summary {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
